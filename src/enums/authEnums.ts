@@ -1,0 +1,5 @@
+export enum REGISTRATION_STEP {
+  EMAIL_REGISTER = 0,
+  EMAIL_VERIFY = 1,
+  FINAL_SIGN_UP = 2,
+}
