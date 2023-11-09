@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="@/app/logo.png" />
+        <link rel="icon" href="images/logo.png" />
       </head>
       <body>
         <Providers>
