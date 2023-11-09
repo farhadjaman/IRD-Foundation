@@ -1,4 +1,4 @@
-import HomeIcon from '@/components/icons/Homecircle.icon';
+import HomeIcon from '@/components/icons/Home.icon';
 import DonateIcon from '@/components/icons/Donate.icon';
 import WidgetIcon from '@/components/icons/Widget.icon';
 import MemorizeIcon from '@/components/icons/Memorize.icon';
@@ -11,7 +11,7 @@ export default function Sidebar() {
   return (
     <div className="row-span-full">
       <div className="w-[100px] gap-y-5 fixed overflow-hidden">
-        <div className="bg-white flex flex-col justify-between items-center rounded-3xl px-2 lg:h-[94vh] pb-16 pt-8">
+        <div className="bg-white flex flex-col justify-between items-center rounded-3xl px-2 lg:h-[93vh] pb-16 pt-8">
           <div className="w-full">
             <img src="images/logo.png" alt="" />
           </div>

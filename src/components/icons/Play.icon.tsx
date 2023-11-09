@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function Icon(props: React.SVGProps<SVGSVGElement>) {
+function PlayIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width={44} height={44} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <circle cx={22} cy={22} r={22} fill="#1FA45B" />
@@ -12,4 +12,4 @@ function Icon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default Icon;
+export default PlayIcon;

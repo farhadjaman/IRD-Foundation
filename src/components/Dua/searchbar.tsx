@@ -1,13 +1,13 @@
 import SearchIcon from '@/components/icons/Search.icon';
 
-function Searchbar() {
+function Searchbar({ title }: { title: string }) {
   return (
-    <div className="w-80 max-w-full relative text-gray-600 ">
+    <div className="w-80 max-w-full relative text-gray-600 mr-8">
       <input
         className=" bg-white h-12 w-full w-42 rounded-lg px-2 text-md focus:outline-none focus:border-2 focus:border-primary"
         type="search"
         name="search"
-        placeholder="Search Dua by Name"
+        placeholder={title}
       />
       <button
         type="submit"
