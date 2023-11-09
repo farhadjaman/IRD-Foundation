@@ -2,16 +2,16 @@
 import Section from '@/components/Dua/Cards/Section';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useGetDuasByCatagoryQuery } from '@/redux/features/common/commonApi';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { useEffect } from 'react';
 
 const Cards = () => {
-  const pathname = usePathname();
-  const catagoryId = Number(pathname.split('/')[2]);
+  const { catagoryId, subcatagoryId, duaId } = useAppSelector((state) => state.common);
   const { data, isLoading, isError, refetch } = useGetDuasByCatagoryQuery(catagoryId);
 
   useEffect(() => {
     refetch();
-  }, [pathname]);
+  }, [catagoryId]);
 
   let content;
   if (isLoading) content = <div>Loading...</div>;

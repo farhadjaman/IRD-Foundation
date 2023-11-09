@@ -1,10 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+type DuaState = {
+  catagoryId: number;
+  subcatagoryId: number;
+  duaId: number;
+};
+
 const initialState = {
   catagoryId: 1,
   subcatagoryId: 1,
-  duaId: 0,
-};
+  duaId: 1,
+} as DuaState;
 
 export const common = createSlice({
   name: 'common',

@@ -9,7 +9,7 @@ function Subcatagories({ subcatagories, duas }: { subcatagories: any; duas: any 
         {subcatagories
           .filter((subcatagory: any) => subcatagory.cat_id === catagoryId)
           .map((subcatagory: any, index: number) => (
-            <div className="flex my-2">
+            <div key={index} className="flex my-2">
               <div className="bg-primary -translate-x-4 mt-2 w-1 h-1 rounded-full"></div>
               <div className="flex flex-col">
                 <p

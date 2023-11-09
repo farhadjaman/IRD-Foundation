@@ -2,30 +2,41 @@
 import SearchIcon from '../../icons/Search.icon';
 import DuasImportance from '../../icons/Duas/DuasImportance.icon';
 import Subcatagories from './Subcatagories';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { use, useEffect } from 'react';
+import { setCatagoryId } from '@/redux/features/common/commonSlice';
 import { useGetDuasByCatagoryQuery } from '@/redux/features/common/commonApi';
 
 const Catagories = () => {
-  const pathname = usePathname();
-  const catagoryId = Number(pathname.split('/')[2]);
+  const { catagoryId, subcatagoryId, duaId } = useAppSelector((state) => state.common);
   const { data, isLoading, isError, refetch } = useGetDuasByCatagoryQuery(catagoryId);
+  const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    refetch();
-  }, [pathname]);
+  const handleChangeCatagory = (id: number) => () => {
+    dispatch(setCatagoryId(id));
+  };
+
+  console.log(catagoryId, 'is changing');
+  // useEffect(() => {
+  //   console.log(catagoryId, 'is changing');
+  //   refetch();
+  // }, [catagoryId]);
+
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   let content;
   if (isLoading) content = <div>Loading...</div>;
   if (isError) content = <div>Error...</div>;
   else if (data) {
-    console.log(data['categories']);
     content = data['categories'].map((catagory: Object, index: any) => (
       <div key={index} className="flex flex-col">
         <div
+          onClick={handleChangeCatagory(catagory.cat_id)}
           className={`${
             catagory.cat_id === catagoryId ? 'bg-secondary' : 'bg-white'
-          } rounded-lg flex items-center justify-between`}
+          } rounded-lg flex items-center justify-between hover:cursor-pointer`}
         >
           <div className="flex items-center gap-2 ">
             <div
