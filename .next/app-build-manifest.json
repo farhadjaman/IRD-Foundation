@@ -1,15 +1,15 @@
 {
   "pages": {
-    "/layout": [
+    "/duas/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/app/duas/[slug]/page.js"
     ],
-    "/page": [
+    "/duas/[slug]/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/css/app/duas/[slug]/layout.css",
+      "static/chunks/app/duas/[slug]/layout.js"
     ]
   }
 }

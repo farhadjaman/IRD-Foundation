@@ -1,3 +1,3 @@
 {
-  "/page": "app/page.js"
+  "/duas/[slug]/page": "app/duas/[slug]/page.js"
 }
