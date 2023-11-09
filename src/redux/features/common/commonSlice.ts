@@ -1,22 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-type CommonState = {
-  value: number;
-};
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 0,
-} as CommonState;
+  catagoryId: 1,
+  subcatagoryId: 1,
+  duaId: 0,
+};
 
 export const common = createSlice({
-  name: "common",
+  name: 'common',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    setCatagoryId: (state, { payload }) => {
+      state.catagoryId = payload.id;
+    },
+    setSubcatagoryId: (state, { payload }) => {
+      state.subcatagoryId = payload.id;
+    },
+    setDuaId: (state, { payload }) => {
+      state.duaId = payload.id;
     },
   },
 });
 
-export const { increment } = common.actions;
+export const { setCatagoryId, setSubcatagoryId, setDuaId } = common.actions;
 export default common.reducer;

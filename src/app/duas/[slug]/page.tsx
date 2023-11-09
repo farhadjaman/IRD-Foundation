@@ -1,7 +1,7 @@
 import Header from '@/components/Dua/header';
 import Sidebar from '@/components/Dua/sidebar';
 import Settings from '@/components/Dua/settings';
-import Catagories from '@/components/Dua/Catagories';
+import Catagories from '@/components/Dua/Catagories/Catagories';
 import Cards from '@/components/Dua/Cards/Sections';
 
 export default function Home() {
