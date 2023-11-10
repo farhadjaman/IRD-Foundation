@@ -3,6 +3,7 @@ import Section from '@/components/Dua/Cards/Section';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useGetDuasByCatagoryQuery } from '@/redux/features/common/commonApi';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { Category, Dua, Subcategory } from '@/types/duas.types';
 import { useEffect } from 'react';
 
 const Cards = () => {
@@ -17,7 +18,7 @@ const Cards = () => {
   if (isLoading) content = <div>Loading...</div>;
   if (isError) content = <div>Error...</div>;
   else if (data) {
-    content = data['subcategories'].map((subcatagory: Object, index: any) => (
+    content = data['subcategories'].map((subcatagory: Subcategory, index: number) => (
       <Section key={index} subcatagory={subcatagory} duas={data['duas']} />
     ));
   }

@@ -5,8 +5,9 @@ import BookmarkIcon from '@/components/icons/Bookmark.icon';
 import MemorizeIcon from '@/components/icons/Memorize.icon';
 import ShareIcon from '@/components/icons/Share.icon';
 import ReportIcon from '@/components/icons/Report.icon';
+import { Category, Dua, Subcategory } from '@/types/duas.types';
 
-const Section = ({ subcatagory, duas }: { subcatagory: any; duas: any }) => {
+const Section = ({ subcatagory, duas }: { subcatagory: Subcategory; duas: Dua[] }) => {
   return (
     <div>
       <div className="flex mb-5 flex-row bg-white rounded-xl px-5 py-4 justify-start items-center">
