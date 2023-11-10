@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { Category } from '@/types/duas.types';
 import { setCatagoryId } from '@/redux/features/common/commonSlice';
 import { useGetDuasByCatagoryQuery } from '@/redux/features/common/commonApi';
+import { redirect } from 'next/navigation';
 
 const Catagories = () => {
   const { catagoryId, subcatagoryId, duaId } = useAppSelector((state) => state.common);
@@ -13,7 +14,7 @@ const Catagories = () => {
   const dispatch = useAppDispatch();
 
   const handleChangeCatagory = (id: number) => () => {
-    dispatch(setCatagoryId(id));
+    dispatch(setCatagoryId({ id }));
   };
 
   console.log(catagoryId, 'is changing');

@@ -13,7 +13,7 @@ export default function Sidebar() {
       <div className="w-[100px] gap-y-5 fixed overflow-hidden">
         <div className="bg-white flex flex-col justify-between items-center rounded-3xl px-2 lg:h-[93vh] pb-16 pt-8">
           <div className="w-full">
-            <img src="images/logo.png" alt="" />
+            <img src="images/logo.png" alt="logo" />
           </div>
           <div className="flex flex-col gap-y-4">
             <div className="p-3 bg-secondary mx-auto rounded-full">
