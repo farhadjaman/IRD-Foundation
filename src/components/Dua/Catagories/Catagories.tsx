@@ -6,27 +6,15 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { Category } from '@/types/duas.types';
 import { setCatagoryId } from '@/redux/features/common/commonSlice';
 import { useGetDuasByCatagoryQuery } from '@/redux/features/common/commonApi';
-import { redirect } from 'next/navigation';
 
 const Catagories = () => {
-  const { catagoryId, subcatagoryId, duaId } = useAppSelector((state) => state.common);
-  const { data, isLoading, isError, refetch } = useGetDuasByCatagoryQuery(catagoryId);
+  const { catagoryId } = useAppSelector((state) => state.common);
+  const { data, isLoading, isError } = useGetDuasByCatagoryQuery(catagoryId);
   const dispatch = useAppDispatch();
 
   const handleChangeCatagory = (id: number) => () => {
     dispatch(setCatagoryId({ id }));
   };
-
-  console.log(catagoryId, 'is changing');
-  // useEffect(() => {
-  //   console.log(catagoryId, 'is changing');
-  //   refetch();
-  // }, [catagoryId]);
-
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
-
   let content;
   if (isLoading) content = <div>Loading...</div>;
   if (isError) content = <div>Error...</div>;
@@ -82,12 +70,12 @@ const Catagories = () => {
     </div>
   );
   return (
-    <div className="bg-white mb-12  rounded-2xl">
+    <div className="bg-white h-[84vh] rounded-2xl">
       <div className=" bg-primary flex py-4 justify-center mb-4">
         <p className="text-lg text-white">Catagories</p>
       </div>
       <Searchbar title="Search Catagories" />
-      <div className=" h-[84vh] flex flex-col px-3 gap-2 scrollbar scrollbar-thumb-white scrollbar-thumb-rounded-md scrollbar-track-transparent overflow-y-scroll">
+      <div className="flex flex-col h-full px-3 gap-2 scrollbar scrollbar-thumb-white scrollbar-thumb-rounded-md scrollbar-track-transparent overflow-y-scroll">
         {/* catagories */}
         {content}
         {/* subcatagories */}

@@ -2,8 +2,10 @@
 import DuaArrowIcon from '@/components/icons/Duas/DuaArrow.icon';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { Dua, Subcategory } from '@/types/duas.types';
+import { setDuaId, setSubcatagoryId } from '@/redux/features/common/commonSlice';
 
 function Subcatagories({ subcatagories, duas }: { subcatagories: Subcategory[]; duas: Dua[] }) {
+  const dispatch = useAppDispatch();
   const { catagoryId, subcatagoryId, duaId } = useAppSelector((state) => state.common);
   return (
     <div className="ml-12 border-dotted border-l-2 my-2 border-primary">
@@ -15,8 +17,9 @@ function Subcatagories({ subcatagories, duas }: { subcatagories: Subcategory[]; 
               <div className="bg-primary -translate-x-4 mt-2 w-1 h-1 rounded-full"></div>
               <div className="flex flex-col">
                 <p
+                  onClick={() => dispatch(setSubcatagoryId({ id: subcatagory.subcat_id }))}
                   className={`${
-                    subcatagory.subcat_id === subcatagoryId ? 'text-primary' : 'text-gray-600'
+                    subcatagory.subcat_id === subcatagoryId ? 'text-primary' : 'text-gray-700'
                   } cursor-pointer font-semibold text-sm`}
                 >
                   {subcatagory.subcat_name_en}
@@ -30,9 +33,10 @@ function Subcatagories({ subcatagories, duas }: { subcatagories: Subcategory[]; 
                           <div className="flex items-center gap-1">
                             <DuaArrowIcon />
                             <p
+                              onClick={() => dispatch(setDuaId({ id: dua.dua_id }))}
                               className={`${
-                                dua.dua_id === duaId ? 'text-primary' : 'text-textGray'
-                              } text-xs font-medium  px-2`}
+                                dua.dua_id === duaId ? 'text-primary' : 'text-gray-600'
+                              } text-xs font-semibold px-2`}
                             >
                               {dua.dua_name_en}
                             </p>
