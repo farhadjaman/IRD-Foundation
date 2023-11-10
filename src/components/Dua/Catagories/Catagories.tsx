@@ -70,12 +70,12 @@ const Catagories = () => {
     </div>
   );
   return (
-    <div className="bg-white h-[84vh] rounded-2xl">
+    <div className="bg-white h-[84vh] scrollbar scrollbar-thumb-white scrollbar-thumb-rounded-md scrollbar-track-transparent overflow-y-scroll rounded-2xl">
       <div className=" bg-primary flex py-4 justify-center mb-4">
         <p className="text-lg text-white">Catagories</p>
       </div>
       <Searchbar title="Search Catagories" />
-      <div className="flex flex-col h-full px-3 gap-2 scrollbar scrollbar-thumb-white scrollbar-thumb-rounded-md scrollbar-track-transparent overflow-y-scroll">
+      <div className="flex flex-col px-3 gap-2">
         {/* catagories */}
         {content}
         {/* subcatagories */}

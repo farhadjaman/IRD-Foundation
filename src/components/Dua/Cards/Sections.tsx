@@ -4,22 +4,30 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { useGetDuasByCatagoryQuery } from '@/redux/features/common/commonApi';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { Category, Dua, Subcategory } from '@/types/duas.types';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const Cards = () => {
   const { catagoryId, subcatagoryId, duaId } = useAppSelector((state) => state.common);
   const { data, isLoading, isError, refetch } = useGetDuasByCatagoryQuery(catagoryId);
 
   useEffect(() => {
-    refetch();
-  }, [catagoryId]);
+    const specificItemRef = document.getElementById(`section ${subcatagoryId}`);
+    if (specificItemRef) {
+      specificItemRef.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [subcatagoryId]);
 
   let content;
   if (isLoading) content = <div>Loading...</div>;
   if (isError) content = <div>Error...</div>;
   else if (data) {
     content = data['subcategories'].map((subcatagory: Subcategory, index: number) => (
-      <Section key={index} subcatagory={subcatagory} duas={data['duas']} />
+      <Section
+        id={`section ${subcatagory.subcat_id}`}
+        key={index}
+        subcatagory={subcatagory}
+        duas={data['duas']}
+      />
     ));
   }
   return (

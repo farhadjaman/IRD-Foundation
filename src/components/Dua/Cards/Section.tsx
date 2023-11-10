@@ -6,10 +6,27 @@ import MemorizeIcon from '@/components/icons/Memorize.icon';
 import ShareIcon from '@/components/icons/Share.icon';
 import ReportIcon from '@/components/icons/Report.icon';
 import { Category, Dua, Subcategory } from '@/types/duas.types';
+import { useAppSelector } from '@/redux/hooks';
+import { useEffect } from 'react';
 
-const Section = ({ subcatagory, duas }: { subcatagory: Subcategory; duas: Dua[] }) => {
+const Section = ({
+  subcatagory,
+  duas,
+  id,
+}: {
+  subcatagory: Subcategory;
+  duas: Dua[];
+  id: string;
+}) => {
+  const { duaId } = useAppSelector((state) => state.common);
+  useEffect(() => {
+    const specificItemRef = document.getElementById(`${duaId}`);
+    if (specificItemRef) {
+      specificItemRef.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [duaId]);
   return (
-    <div>
+    <div id={id}>
       <div className="flex mb-5 flex-row bg-white rounded-xl px-5 py-4 justify-start items-center">
         <p className="text-title font-medium">
           <span className="text-primary font-medium ">Section: </span>
@@ -19,28 +36,28 @@ const Section = ({ subcatagory, duas }: { subcatagory: Subcategory; duas: Dua[] 
       <div className="flex flex-col">
         {duas &&
           duas
-            .filter((dua) => dua.subcat_id === subcatagory?.subcat_id)
+            .filter((dua) => dua.subcat_id === subcatagory.subcat_id)
             .map((dua, index) => (
-              <div key={index} className=" bg-white rounded-3xl mb-5">
+              <div id={`${dua.dua_id}`} key={index} className=" bg-white rounded-3xl mb-5">
                 <div className="p-6 pb-3">
                   <div className="flex flex-row gap-2 justify-start items-center ">
                     <DuaCardIcon />
                     <p className="text-primary text-sm font-semibold">
-                      {dua.id}: The servant is dependent on his Lord #{index + 1}
+                      {dua.id}: {dua.dua_name_en}
                     </p>
                   </div>
                   <div className="flex flex-col gap-5 justify-start items-start text-[18px] font-semibold text-gray-500">
                     <div className="w-full ">
-                      <p className="mt-5 font-semibold text-justify leading-8 ">
-                        All human beings depend on Allah for their welfare and prevention of evil in
-                        various matters of their religion and world. Allah says (interpretation of
-                        the meaning): O mankind, you are those in need of Allah, while Allah is the
-                        Free of need, the Praiseworthy.
+                      <p className="mt-5 font-semibold text-justify leading-8 ">{dua.top_en}</p>
+                      <p className="mt-5 font-semibold text-justify leading-8 ">{dua.dua_arabic}</p>
+                      <p className="mt-5 font-medium text-justify leading-8 ">
+                        {dua.translation_bn}
                       </p>
+                      <p className="mt-5 font-semibold text-justify leading-8 ">{dua.bottom_en}</p>
                     </div>
                     <div className="flex flex-col gap-y-1">
                       <p className=" text-primary">Reference:</p>
-                      <p>Surah Al-Fatir 35:15</p>
+                      <p>{dua.refference_en}</p>
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between pt-6">
