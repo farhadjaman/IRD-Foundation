@@ -3,7 +3,7 @@ import SearchIcon from '../../icons/Search.icon';
 import DuasImportance from '../../icons/Duas/DuasImportance.icon';
 import Subcatagories from './Subcatagories';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { use, useEffect } from 'react';
+import { Category } from '@/types/duas.types';
 import { setCatagoryId } from '@/redux/features/common/commonSlice';
 import { useGetDuasByCatagoryQuery } from '@/redux/features/common/commonApi';
 
@@ -30,7 +30,7 @@ const Catagories = () => {
   if (isLoading) content = <div>Loading...</div>;
   if (isError) content = <div>Error...</div>;
   else if (data) {
-    content = data['categories'].map((catagory: Object, index: any) => (
+    content = data['categories'].map((catagory: Category, index: number) => (
       <div key={index} className="flex flex-col">
         <div
           onClick={handleChangeCatagory(catagory.cat_id)}
