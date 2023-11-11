@@ -48,14 +48,6 @@ function Subcatagories({ subcatagories, duas }: { subcatagories: Subcategory[]; 
               </div>
             </div>
           ))}
-        {/* <div className="flex my-2">
-          <div className="bg-primary -translate-x-4 mt-1.5 w-1.5 rounded-full h-1.5"></div>
-          <div className="flex flex-col justify-start items-start">
-            <p className="text-title cursor-pointer font-semibold text-left text-sm dark:text-dark-text xs:text-2xs style-Kalpurush">
-              Morning &amp; Evening Adhkar
-            </p>
-          </div>
-        </div> */}
       </div>
     </div>
   );

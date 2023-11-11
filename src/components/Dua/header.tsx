@@ -1,3 +1,4 @@
+import SettingsIcon from '../icons/Settings.icon';
 import Searchbar from './searchbar';
 import UserIcon from '@/components/icons/User.icon.';
 
@@ -8,8 +9,11 @@ export default function Header() {
         <h1 className="font-manrope font-medium text-2xl">Duas Page</h1>
         <Searchbar title="Search by Dua Name" />
       </div>
-      <div className="flex justify-end px-2">
+      <div className="flex justify-end items-center gap-4 2xl:gap-0 px-2">
         <UserIcon />
+        <span className="block 2xl:hidden">
+          <SettingsIcon />
+        </span>
       </div>
     </div>
   );

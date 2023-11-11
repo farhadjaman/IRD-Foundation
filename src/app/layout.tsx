@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: 'IDR Foundation',
+  title: 'Dua & Ruqyah | All Duas Collection',
   description: 'Dua App',
 };
 

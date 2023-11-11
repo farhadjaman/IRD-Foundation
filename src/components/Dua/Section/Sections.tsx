@@ -1,14 +1,13 @@
 'use client';
-import Section from '@/components/Dua/Cards/Section';
-import { usePathname, useSearchParams } from 'next/navigation';
+import Section from '@/components/Dua/Section/Section';
 import { useGetDuasByCatagoryQuery } from '@/redux/features/common/commonApi';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { Category, Dua, Subcategory } from '@/types/duas.types';
-import { useEffect, useRef } from 'react';
+import { useAppSelector } from '@/redux/hooks';
+import { Subcategory } from '@/types/duas.types';
+import { useEffect } from 'react';
 
 const Cards = () => {
-  const { catagoryId, subcatagoryId, duaId } = useAppSelector((state) => state.common);
-  const { data, isLoading, isError, refetch } = useGetDuasByCatagoryQuery(catagoryId);
+  const { catagoryId, subcatagoryId } = useAppSelector((state) => state.common);
+  const { data, isLoading, isError } = useGetDuasByCatagoryQuery(catagoryId);
 
   useEffect(() => {
     const specificItemRef = document.getElementById(`section ${subcatagoryId}`);
@@ -31,7 +30,7 @@ const Cards = () => {
     ));
   }
   return (
-    <div className="row-span-full pr-4 scrollbar scrollbar-thumb-gray-500 scrollbar-thumb-rounded-md scrollbar-track-transparent w-full h-[calc(100vh-100px)] col-start-2 pb-6 overflow-y-scroll">
+    <div className="row-span-full pr-2 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded-md scrollbar-track-transparent w-full h-[calc(100vh-120px)] 2xl:h-[calc(100vh-110px)] col-start-2 pb-6 overflow-y-scroll">
       {content}
     </div>
   );
