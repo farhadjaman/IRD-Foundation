@@ -8,35 +8,49 @@ import JarIcon from '@/components/icons/Jar.icon';
 import BookIcon from '@/components/icons/Book.icon';
 
 export default function Sidebar() {
+  const navItems = [
+    {
+      id: 1,
+      icon: <HomeIcon />,
+    },
+    {
+      id: 2,
+      icon: <WidgetIcon />,
+    },
+    {
+      id: 3,
+      icon: <MemorizeIcon />,
+    },
+    {
+      id: 4,
+      icon: <BookmarkIcon />,
+    },
+    {
+      id: 5,
+      icon: <JarIcon />,
+    },
+    {
+      id: 6,
+      icon: <ChatIcon />,
+    },
+    {
+      id: 7,
+      icon: <BookIcon />,
+    },
+  ];
   return (
     <div className="row-span-full">
       <div className="w-[100px] gap-y-5 fixed overflow-hidden">
-        <div className="bg-white flex flex-col justify-between items-center rounded-3xl px-2 lg:h-[93vh] pb-16 pt-8">
+        <div className="bg-white flex flex-col justify-between items-center rounded-3xl px-2 lg:h-[93vh] py-8">
           <div className="w-full">
             <img src="images/logo.png" alt="logo" />
           </div>
           <div className="flex flex-col gap-y-4">
-            <div className="p-3 bg-secondary mx-auto rounded-full">
-              <HomeIcon />
-            </div>
-            <div className="p-3 bg-secondary mx-auto rounded-full">
-              <WidgetIcon />
-            </div>
-            <div className="p-3 bg-secondary mx-auto rounded-full">
-              <MemorizeIcon />
-            </div>
-            <div className="p-3 bg-secondary mx-auto rounded-full">
-              <BookmarkIcon />
-            </div>
-            <div className="p-3 bg-secondary mx-auto rounded-full">
-              <JarIcon />
-            </div>
-            <div className="p-3 bg-secondary mx-auto rounded-full">
-              <ChatIcon />
-            </div>
-            <div className="p-3 bg-secondary mx-auto rounded-full">
-              <BookIcon />
-            </div>
+            {navItems.map((item) => (
+              <div key={item.id} className="p-3 bg-secondary mx-auto rounded-full">
+                {item.icon}
+              </div>
+            ))}
           </div>
           <div className="p-4 bg-primary flex justify-center items-center rounded-lg">
             <DonateIcon />

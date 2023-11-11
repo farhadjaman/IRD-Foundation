@@ -70,12 +70,12 @@ const Catagories = () => {
     </div>
   );
   return (
-    <div className="bg-white mb-12 rounded-xl overflow-hidden">
+    <div className="bg-white rounded-xl overflow-hidden">
       <div className=" bg-primary flex py-4 justify-center mb-4">
         <p className="text-lg text-white">Catagories</p>
       </div>
       <Searchbar title="Search Catagories" />
-      <div className="flex flex-col px-3 gap-2 h-[60vh] 2xl:h-[70vh] scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-md scrollbar-track-transparent overflow-y-scroll">
+      <div className="flex flex-col px-3 gap-2 h-[calc(80vh-105px)] 2xl:h-[calc(80vh-110px)] scrollbar-thin scrollbar-thumb-white scrollbar-thumb-rounded-md scrollbar-track-transparent overflow-y-scroll">
         {/* catagories */}
         {content}
         {/* subcatagories */}
