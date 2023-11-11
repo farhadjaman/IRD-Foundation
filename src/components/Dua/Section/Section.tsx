@@ -50,6 +50,9 @@ const Section = ({
                     <div className="w-full ">
                       <p className="mt-5 font-semibold text-justify leading-8 ">{dua.top_en}</p>
                       <p className="mt-5 font-semibold text-justify leading-8 ">{dua.dua_arabic}</p>
+                      <p className="mt-5 font-semibold text-justify leading-8 ">
+                        {dua.transliteration_en}
+                      </p>
                       <p className="mt-5 font-medium text-justify leading-8 ">
                         {dua.translation_bn}
                       </p>

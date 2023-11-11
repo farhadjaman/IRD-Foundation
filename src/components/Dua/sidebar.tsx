@@ -41,7 +41,7 @@ export default function Sidebar() {
   return (
     <div className="row-span-full">
       <div className="w-[100px] gap-y-5 fixed overflow-hidden">
-        <div className="bg-white flex flex-col justify-between items-center rounded-3xl px-2 lg:h-[93vh] py-8">
+        <div className="bg-white flex flex-col justify-between items-center rounded-2xl px-1 h-[calc(100vh-50px)] py-8">
           <div className="w-full">
             <img src="images/logo.png" alt="logo" />
           </div>
