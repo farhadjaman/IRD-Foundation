@@ -20,23 +20,23 @@ function Subcatagories({ subcatagories, duas }: { subcatagories: Subcategory[]; 
                   onClick={() => dispatch(setSubcatagoryId({ id: subcatagory.subcat_id }))}
                   className={`${
                     subcatagory.subcat_id === subcatagoryId ? 'text-primary' : 'text-gray-700'
-                  } cursor-pointer font-semibold text-sm`}
+                  } cursor-pointer font-semibold text-sm mb-4`}
                 >
                   {subcatagory.subcat_name_en}
                 </p>
                 {subcatagory.subcat_id === subcatagoryId && (
-                  <div className="flex flex-col">
+                  <div className="flex flex-col gap-4">
                     {duas
                       .filter((dua) => dua.subcat_id === subcatagory.subcat_id)
                       .map((dua: Dua, index: number) => (
-                        <div key={index} className="mt-2 cursor-pointer">
+                        <div key={index} className="cursor-pointer">
                           <div className="flex items-center gap-1">
                             <DuaArrowIcon />
                             <p
                               onClick={() => dispatch(setDuaId({ id: dua.dua_id }))}
                               className={`${
-                                dua.dua_id === duaId ? 'text-primary' : 'text-gray-600'
-                              } text-xs font-semibold px-2`}
+                                dua.dua_id === duaId ? 'text-primary' : 'text-gray-500'
+                              } text-sm font-semibold px-2`}
                             >
                               {dua.dua_name_en}
                             </p>
