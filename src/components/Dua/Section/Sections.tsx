@@ -30,7 +30,7 @@ const Cards = () => {
     ));
   }
   return (
-    <div className="row-span-full pr-2 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded-md scrollbar-track-transparent w-full h-[calc(100vh-120px)] 2xl:h-[calc(100vh-110px)] col-start-2 pb-6 overflow-y-scroll">
+    <div className="row-span-full pr-2 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded-md scrollbar-track-transparent w-full h-[calc(100vh-120px)]  col-start-2 overflow-y-scroll">
       {content}
     </div>
   );
